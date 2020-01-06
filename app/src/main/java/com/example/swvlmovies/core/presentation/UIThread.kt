@@ -1,6 +1,6 @@
 package com.example.swvlmovies.core.presentation
 
-import com.example.swvlmovies.base.data.PostExecutionThread
+import com.example.swvlmovies.base.presentation.PostExecutionThread
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject

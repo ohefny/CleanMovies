@@ -1,9 +1,6 @@
 package com.example.swvlmovies.core.di
 import com.example.swvlmovies.core.application.SwvlMoviesApplication
-import com.example.swvlmovies.core.di.modules.ActivityBuilder
-import com.example.swvlmovies.core.di.modules.AppModule
-import com.example.swvlmovies.core.di.modules.ExecutorsModule
-import com.example.swvlmovies.core.di.modules.ViewModelModule
+import com.example.swvlmovies.core.di.modules.*
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -15,7 +12,8 @@ import javax.inject.Singleton
     AppModule::class,
     ActivityBuilder::class,
     ViewModelModule::class,
-    ExecutorsModule::class
+    ExecutorsModule::class,
+    NetworkModule::class
 ])
 interface AppComponent : AndroidInjector<SwvlMoviesApplication> {
 

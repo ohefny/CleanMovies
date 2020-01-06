@@ -1,4 +1,4 @@
-package com.example.swvlmovies.core.di.modules
+package com.example.swvlmovies.core.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

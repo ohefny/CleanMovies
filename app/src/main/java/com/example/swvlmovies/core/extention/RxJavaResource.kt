@@ -4,8 +4,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.swvlmovies.base.data.PostExecutionThread
-import com.example.swvlmovies.base.data.ThreadExecutor
+import com.example.swvlmovies.base.presentation.PostExecutionThread
+import com.example.swvlmovies.base.domian.ThreadExecutor
 import com.example.swvlmovies.core.data.Resource
 import io.reactivex.Completable
 import io.reactivex.Flowable

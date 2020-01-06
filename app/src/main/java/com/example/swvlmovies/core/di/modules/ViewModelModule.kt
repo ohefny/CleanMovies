@@ -2,6 +2,7 @@ package com.example.swvlmovies.core.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.swvlmovies.core.presentation.ViewModelFactory
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module

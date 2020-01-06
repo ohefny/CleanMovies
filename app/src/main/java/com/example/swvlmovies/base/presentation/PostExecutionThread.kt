@@ -1,7 +1,6 @@
-package com.example.swvlmovies.base.data
+package com.example.swvlmovies.base.presentation
 
 import io.reactivex.Scheduler
-import org.jetbrains.annotations.Async
 
 interface PostExecutionThread {
     val scheduler: Scheduler

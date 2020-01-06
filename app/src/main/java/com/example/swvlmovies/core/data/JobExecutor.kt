@@ -1,6 +1,6 @@
 package com.example.swvlmovies.core.data
 
-import com.example.swvlmovies.base.data.ThreadExecutor
+import com.example.swvlmovies.base.domian.ThreadExecutor
 import java.util.concurrent.*
 import javax.inject.Inject
 

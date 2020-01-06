@@ -1,7 +1,7 @@
 package com.example.swvlmovies.core.di.modules
 
-import com.example.swvlmovies.base.data.PostExecutionThread
-import com.example.swvlmovies.base.data.ThreadExecutor
+import com.example.swvlmovies.base.presentation.PostExecutionThread
+import com.example.swvlmovies.base.domian.ThreadExecutor
 import com.example.swvlmovies.core.data.JobExecutor
 import com.example.swvlmovies.core.presentation.UIThread
 import dagger.Binds

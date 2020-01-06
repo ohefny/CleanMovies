@@ -1,6 +1,5 @@
-package com.example.swvlmovies.base.data
+package com.example.swvlmovies.base.domian
 
-import io.reactivex.Scheduler
 import java.util.concurrent.Executor
 
 
