@@ -4,6 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.Transformations.map
 import com.example.swvlmovies.base.presentation.PostExecutionThread
 import com.example.swvlmovies.base.domian.ThreadExecutor
 import com.example.swvlmovies.core.data.Resource
@@ -18,6 +19,11 @@ import java.net.SocketException
 
 fun <T> Flowable<T>.flatMapToResource(): Flowable<Resource<T>> {
     return map { Resource.Success(it) as Resource<T> }
+        .startWith(Resource.Loading())
+        .onErrorReturn { Resource.Failure(it) }
+}
+fun Completable.flatMapToResource(): Flowable<Resource<Unit>> {
+    return andThen(Flowable.just(Resource.Success(Unit) as Resource<Unit>))
         .startWith(Resource.Loading())
         .onErrorReturn { Resource.Failure(it) }
 }
@@ -55,11 +61,22 @@ fun <T> Flowable<Resource<T>>.publishResource(
         .doOnError { Timber.e(it) }
         .subscribe { liveData.postValue(it) }
 }
-
-fun <T> LiveData<T>.observe(lifecycleOwner: LifecycleOwner, action: (T) -> Unit) {
-    observe(lifecycleOwner, Observer(action))
+fun <T> Completable.publishResource(
+    liveData: MutableLiveData<Resource<Unit>>,
+    postExecutionThread: PostExecutionThread,
+    threadExecutor: ThreadExecutor
+): Disposable {
+    return applyAsyncSchedulers(executor =threadExecutor,postExecutionThread = postExecutionThread)
+        .doOnError { Timber.e(it) }
+        .subscribe { liveData.postValue(Resource.Success(Unit)) }
 }
 
+fun <T> LiveData<T>.observe(lifecycleOwner: LifecycleOwner, onEmission: (T) -> Unit) {
+    observe(lifecycleOwner, Observer(onEmission))
+}
+fun LiveData<Unit>.observe(lifecycleOwner: LifecycleOwner, onEmission: () -> Unit) {
+    observe(lifecycleOwner, Observer{onEmission.invoke()})
+}
 fun <T> LiveData<Resource<T>>.observeResource(
     lifecycleOwner: LifecycleOwner, doOnSuccess: T.() -> Unit,
     doOnError: ((Throwable) -> Unit)? = null,
