@@ -1,19 +1,24 @@
 package com.example.swvlmovies.modules.splash.data
 
+import com.example.swvlmovies.modules.common.data.local.MoviesDAO
+import com.example.swvlmovies.modules.splash.data.source.AssetsDS
 import com.example.swvlmovies.modules.splash.domain.MoviesPreparationRepository
 import io.reactivex.Completable
 import io.reactivex.Single
-import timber.log.Timber
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class MoviesPreparationRepositoryImpl @Inject constructor():MoviesPreparationRepository{
-    override fun isMoviesPrepared(): Single<Boolean> {
-        return Single.just(false)
-    }
-    override fun prepareMovies(): Completable {
-        Timber.d("prepareMovies() called")
-        return Completable.timer(6000, TimeUnit.MILLISECONDS)
-    }
+class MoviesPreparationRepositoryImpl @Inject constructor(
+    private val moviesDAO: MoviesDAO,
+    private val assetsDS: AssetsDS
+) : MoviesPreparationRepository {
+
+    override fun isMoviesPrepared(): Single<Boolean> = moviesDAO.getMoviesCount().map { it > 0 }
+
+
+    override fun prepareMovies(): Completable =
+        assetsDS.loadMovies()
+            .flatMapCompletable(moviesDAO::insertMovies)
+
+
 
 }
