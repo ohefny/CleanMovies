@@ -22,7 +22,7 @@ class SplashViewModel @Inject constructor(prepareMoviesData: PrepareMoviesData,t
     val isDataReady:LiveData<Unit> = _isDataReady
     private val compositeDisposable=CompositeDisposable()
     init {
-        Completable.timer(1000,TimeUnit.MILLISECONDS)
+        Completable.timer(SPLASH_DELAY_TIME,TimeUnit.MILLISECONDS)
             .mergeWith(prepareMoviesData.build(Unit))
             .applyAsyncSchedulers(executor =threadExecutor,postExecutionThread = postExecutionThread)
             .subscribe { _isDataReady.postValue(Unit)}
@@ -33,5 +33,7 @@ class SplashViewModel @Inject constructor(prepareMoviesData: PrepareMoviesData,t
         compositeDisposable.clear()
         super.onCleared()
     }
-
+    companion object{
+        const val SPLASH_DELAY_TIME=1000L
+    }
 }
