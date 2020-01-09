@@ -11,7 +11,7 @@ class ActorListTypeConverter {
     }
 
     @TypeConverter
-    fun fromStringList(list: List<ActorDTO>): String {
+    fun fromActorsList(list: List<ActorDTO>): String {
         return list.joinToString(separator = DELIMITER) { it.name }
     }
 }
@@ -21,9 +21,8 @@ class GenreListTypeConverter {
     fun fromString(value: String): List<GenreDTO> {
         return value.split(DELIMITER).map(::GenreDTO)
     }
-
     @TypeConverter
-    fun fromStringList(list: List<GenreDTO>): String {
+    fun fromGenreList(list: List<GenreDTO>): String {
         return list.joinToString(separator = DELIMITER) { it.name }
     }
 }
