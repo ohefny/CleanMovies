@@ -6,17 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.swvlmovies.R
 
-class MoviesActivity : AppCompatActivity() {
+class MoviesSearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_movies_search)
     }
 
 
     companion object{
         fun startMe(activity: Activity){
-            val intent = Intent(activity, MoviesActivity::class.java)
+            val intent = Intent(activity, MoviesSearchActivity::class.java)
             activity.startActivity(intent)
         }
     }

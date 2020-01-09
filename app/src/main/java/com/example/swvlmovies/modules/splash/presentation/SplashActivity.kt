@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.swvlmovies.core.extention.observe
-import com.example.swvlmovies.modules.movies.presentation.MoviesActivity
+import com.example.swvlmovies.modules.movies.presentation.MoviesSearchActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class SplashActivity : DaggerAppCompatActivity() {
     }
 
     private fun navigateToMoviesScreen() {
-        MoviesActivity.startMe(this)
+        MoviesSearchActivity.startMe(this)
         finish()
     }
 
