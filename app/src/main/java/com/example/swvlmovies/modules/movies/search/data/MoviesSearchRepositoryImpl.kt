@@ -2,6 +2,7 @@ package com.example.swvlmovies.modules.movies.search.data
 
 import com.example.swvlmovies.modules.common.data.local.MoviesDAO
 import com.example.swvlmovies.modules.common.data.local.models.GenreDTO
+import com.example.swvlmovies.modules.common.data.local.models.MovieDTO
 import com.example.swvlmovies.modules.common.data.local.serialization_adapters.DELIMITER
 import com.example.swvlmovies.modules.movies.search.data.cache.MoviesCacheDS
 import com.example.swvlmovies.modules.movies.search.domain.MoviesSearchRepository
@@ -15,7 +16,9 @@ class MoviesSearchRepositoryImpl @Inject constructor(
     private val moviesCacheDS: MoviesCacheDS
 ) : MoviesSearchRepository {
     override fun getMoviesWithGenre(genre: String): Single<List<Movie>> {
-        return Single.just(emptyList())
+        return moviesDAO.getMoviesByGenre(genre)
+            .flattenAsFlowable { it }
+            .map { it.toDomain() }.toList()
     }
 
     override fun getGenres(): Flowable<String> {
@@ -23,13 +26,22 @@ class MoviesSearchRepositoryImpl @Inject constructor(
             .switchIfEmpty { getGenresFromLocal() }
             .map { it.name }
     }
+
     private fun getGenresFromLocal(): Flowable<GenreDTO> {
         return moviesDAO.getGenres()
             .flattenAsFlowable { it }
             .flatMapIterable { it.split(DELIMITER) }
             .map { it.trim() }
             .distinct()
-            .map(::GenreDTO)
-            .doOnNext{moviesCacheDS.addGenre(it)}
+            .map{GenreDTO(it)}
+            .doOnNext { moviesCacheDS.addGenre(it) }
     }
 }
+
+private fun MovieDTO.toDomain():Movie = Movie(
+    cast = cast?.map { it.name } ?: emptyList(),
+    genres = genres!!.map { it.name },
+    year = year,
+    title = title,
+    rating = rating
+)
