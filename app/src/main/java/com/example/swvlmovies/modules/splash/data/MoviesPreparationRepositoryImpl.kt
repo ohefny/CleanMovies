@@ -16,9 +16,13 @@ class MoviesPreparationRepositoryImpl @Inject constructor(
 
 
     override fun prepareMovies(): Completable =
-        assetsDS.loadMovies()
+        assetsDS.loadMovies().flattenAsFlowable { it }
+            .map { movie ->
+                val lowerCaseGenres = movie.genres?.map { it.copy(name = it.name.toLowerCase()) }
+                movie.copy(genres = lowerCaseGenres)
+            }
+            .toList()
             .flatMapCompletable(moviesDAO::insertMovies)
-
 
 
 }
