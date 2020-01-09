@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SwvlMovies</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <!-- Search screen -->
+    <string name="search_empty_place_holder">Please enter a genre to find movies e.g. Action</string>
+    <string name="search_hint">Enter genre</string>
+    <string name="search_button">Search</string>
 </resources>
