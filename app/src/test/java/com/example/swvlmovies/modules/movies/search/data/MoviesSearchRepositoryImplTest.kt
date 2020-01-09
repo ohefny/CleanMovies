@@ -28,6 +28,7 @@ class MoviesSearchRepositoryImplTest {
         MockitoAnnotations.initMocks(this)
         repository = MoviesSearchRepositoryImpl(moviesDAO,mockedCacheDS)
     }
+    //todo investigate why addGenre is not called
     @Test
     fun `when repository getGenres called then MoviesCacheDS's addGenre is called with the same number of distinct genres count`() {
         whenever(moviesDAO.getGenres()).thenReturn(Single.just(genres))
@@ -48,6 +49,13 @@ class MoviesSearchRepositoryImplTest {
         repository.getGenres().test()
         verify(moviesDAO).getGenres()
     }
-
+    @Test
+    fun `given cached genres when repository getGenres called then MoviesDAO's getGenres is not called `() {
+        whenever(moviesDAO.getGenres()).thenReturn(Single.just(genres))
+        whenever(mockedCacheDS.getGenres()).thenReturn(Flowable.fromIterable(listOf(GenreDTO("action"))))
+        repository.getGenres().test()
+        verify(mockedCacheDS).getGenres() //cached called once
+        verify(moviesDAO,Times(0)).getGenres()//local not called
+    }
 
 }
