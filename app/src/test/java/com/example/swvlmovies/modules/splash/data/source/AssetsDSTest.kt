@@ -1,6 +1,7 @@
 package com.example.swvlmovies.modules.splash.data.source
 
 import android.content.res.AssetManager
+import com.example.swvlmovies.core.di.modules.AppModule
 import com.example.swvlmovies.modules.splash.data.MoviesPreparationRepositoryImpl
 import com.google.gson.Gson
 import com.nhaarman.mockito_kotlin.any
@@ -42,9 +43,9 @@ class AssetsDSTest{
     @Throws(Exception::class)
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        assetsDS = spy(AssetsDS(assetManager=assetsManager,gson=Gson()))
+        assetsDS= AssetsDS(assetsManager, AppModule().provideGson())
         whenever(assetsManager.open(ArgumentMatchers.anyString())).thenReturn(assetsInputStream)
-        assetsDS= AssetsDS(assetsManager, Gson())
+
     }
     @Test
     fun `when AssetsDs's loadMovies is called then assetsManager's open is called`() {
