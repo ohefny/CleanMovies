@@ -3,6 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
+//read local.properties to get flickr(key,secret,base_url)
+def getLocalProperty = { k, defV ->
+    Properties properties = new Properties()
+    if (project.rootProject.file('local.properties').canRead()) {
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+    }
+    return properties.getProperty(k, defV)
+}
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -12,6 +22,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "FLICKR_SECRET", getLocalProperty("flickr.secret",  '""') //add default value for fast testing purposes
+        buildConfigField "String", "FLICKR_KEY", getLocalProperty("flickr.key", '""')
+        buildConfigField "String", "FLICKR_BASE_URL", getLocalProperty("flickr.url", '""')
+
     }
     buildTypes {
         release {
