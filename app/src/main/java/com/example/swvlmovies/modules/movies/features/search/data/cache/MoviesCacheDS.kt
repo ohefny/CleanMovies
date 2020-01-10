@@ -9,7 +9,6 @@ class MoviesCacheDS @Inject constructor() {
     private val availableGenres: MutableSet<GenreDTO> = mutableSetOf()
     private val availableActors: MutableSet<ActorDTO> = mutableSetOf()
     fun addGenres(genres:  List<GenreDTO>) = availableGenres.addAll(genres)
-    fun addGenre(genre: GenreDTO) = availableGenres.add(genre)
 
     fun addActors(actors: List<ActorDTO>)= availableActors.addAll(actors)
 
