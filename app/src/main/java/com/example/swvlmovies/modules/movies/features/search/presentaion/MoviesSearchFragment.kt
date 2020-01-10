@@ -5,13 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.swvlmovies.R
-import com.example.swvlmovies.core.extention.observe
-import com.example.swvlmovies.core.extention.observeResource
-import com.example.swvlmovies.core.extention.onClick
-import com.example.swvlmovies.core.extention.toggleVisibility
+import com.example.swvlmovies.core.extention.*
 import com.example.swvlmovies.core.presentation.ViewModelFactory
 import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import dagger.android.support.DaggerFragment
@@ -54,16 +50,19 @@ class MoviesSearchFragment : DaggerFragment() {
 
     private fun initObservation() = with(mViewModel) {
         clickedMovie.observe(viewLifecycleOwner, onEmission = movieSelectedListener::onMovieSelected)
-        categorizedGenreMovies.observeResource(
-            viewLifecycleOwner,
+        categorizedGenreMovies.observeResource(viewLifecycleOwner,
             doOnSuccess = adapter::addData,
             doOnLoading = { toggleLoading(true) },
             doOnTerminate = { toggleLoading(false) },
-            doOnError = ::showNotValidGenre)
+            doOnError = {
+                adapter.reset()
+                showNotValidGenre()
+            })
     }
 
-    private fun showNotValidGenre(throwable: Throwable) {
-        Toast.makeText(context, throwable.message, Toast.LENGTH_LONG).show()
+    private fun showNotValidGenre() {
+        textView_movieList_callToAction.text = getString(R.string.search_error_place_holder)
+        textView_movieList_callToAction.visible()
     }
 
     private fun toggleLoading(showLoading: Boolean) {
@@ -72,10 +71,6 @@ class MoviesSearchFragment : DaggerFragment() {
             textView_movieList_callToAction.toggleVisibility(visible = !showLoading)
         else
             textView_movieList_callToAction.toggleVisibility(false)
-    }
-
-    fun openMovieDetails(movie: Movie) {
-
     }
 
     private fun initViews() = with(mRootView) {

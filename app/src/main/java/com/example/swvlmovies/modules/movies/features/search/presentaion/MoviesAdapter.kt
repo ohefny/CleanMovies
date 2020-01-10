@@ -41,6 +41,11 @@ class MoviesAdapter constructor(val onMovieClickedListener: (CategorizedMovieUI.
         notifyDataSetChanged()
     }
 
+    fun reset() {
+        this.data.clear()
+        notifyDataSetChanged()
+    }
+
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: CategorizedMovieUI.MovieUI) = with(itemView) {
             tvMovieTitle.text = movie.title
