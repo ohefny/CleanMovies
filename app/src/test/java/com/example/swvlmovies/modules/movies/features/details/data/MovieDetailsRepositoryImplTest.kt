@@ -16,6 +16,7 @@ import org.junit.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.mockito.internal.verification.Times
 
 class MovieDetailsRepositoryImplTest {
     @Mock
@@ -57,6 +58,12 @@ class MovieDetailsRepositoryImplTest {
         whenever(movieRemote.getMoviePhotos(any())).thenReturn(Flowable.fromIterable(photosList))
         repository.getMoviePhotos(movie).test()
         verify(movieRemote).getMoviePhotos(any())
+    }
+    @Test
+    fun `given cached photos when repository_getMoviePhotos called then MoviePhotosRemoteDS_getPhotos is not called`() {
+        whenever(photosLocal.getMoviePhotos(any())).thenReturn(Flowable.fromIterable(photosList))
+        repository.getMoviePhotos(movie).test()
+        verify(movieRemote, Times(0)).getMoviePhotos(any())
     }
     @Test
     fun `given no cache photos when repository_getMoviePhotos called then emitted remote photos is cached `() {
