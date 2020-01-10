@@ -22,16 +22,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "FLICKR_SECRET", getLocalProperty("flickr.secret",  '""') //add default value for fast testing purposes
-        buildConfigField "String", "FLICKR_KEY", getLocalProperty("flickr.key", '""')
-        buildConfigField "String", "FLICKR_BASE_URL", getLocalProperty("flickr.url", '""')
-
+        buildConfigField "String", "FLICKR_KEY", getLocalProperty("flickr.key", '""')//add default value for fast testing purposes
+        buildConfigField "String", "FLICKR_BASE_URL",'"https://api.flickr.com"'
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 

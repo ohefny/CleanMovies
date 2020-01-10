@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MoviePhotosAPI{
-    @GET("services/rest/?method=flickr.photos.​search&format=json&nojsoncallback=​1​")
+    @GET("services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1")
     fun getPhotos(@Query("text")title:String,
                   @Query("page")page:Int=1,
                   @Query("per_page")count:Int=10,

@@ -2,7 +2,7 @@ package com.example.swvlmovies.modules.movies.features.search.data
 
 import com.example.swvlmovies.modules.common.data.local.MoviesDAO
 import com.example.swvlmovies.modules.common.data.local.models.GenreDTO
-import com.example.swvlmovies.modules.common.data.local.models.MovieDTO
+import com.example.swvlmovies.modules.common.data.local.models.toDomain
 import com.example.swvlmovies.modules.common.data.local.serialization_adapters.DELIMITER
 import com.example.swvlmovies.modules.movies.features.search.data.cache.MoviesCacheDS
 import com.example.swvlmovies.modules.movies.features.search.domain.MoviesSearchRepository
@@ -40,11 +40,3 @@ class MoviesSearchRepositoryImpl @Inject constructor(
             .flattenAsFlowable { it }
     }
 }
-
-private fun MovieDTO.toDomain():Movie = Movie(
-    cast = cast?.map { it.name } ?: emptyList(),
-    genres = genres!!.map { it.name },
-    year = year,
-    title = title,
-    rating = rating
-)

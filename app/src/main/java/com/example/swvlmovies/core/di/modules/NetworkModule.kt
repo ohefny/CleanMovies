@@ -32,7 +32,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun retrofit(client: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl("https://google.com").addConverterFactory(
+        return Retrofit.Builder().baseUrl(BuildConfig.FLICKR_BASE_URL).addConverterFactory(
             ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
