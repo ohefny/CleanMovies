@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.domain.enitiy
+package com.example.swvlmovies.modules.movies.features.search.domain.enitiy
 
 data class Movie(val cast: List<String>,
                  val genres: List<String>,

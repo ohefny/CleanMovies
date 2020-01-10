@@ -1,6 +1,6 @@
 package com.example.swvlmovies.core.di.modules
 import com.example.swvlmovies.modules.movies.presentation.MoviesActivity
-import com.example.swvlmovies.modules.movies.search.di.MoviesSearchFragmentBuilder
+import com.example.swvlmovies.modules.movies.features.search.di.MoviesSearchFragmentBuilder
 import com.example.swvlmovies.modules.splash.di.SplashModule
 import com.example.swvlmovies.modules.splash.presentation.SplashActivity
 import dagger.Module

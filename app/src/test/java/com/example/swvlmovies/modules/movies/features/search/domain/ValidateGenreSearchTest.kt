@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.domain
+package com.example.swvlmovies.modules.movies.features.search.domain
 
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Flowable

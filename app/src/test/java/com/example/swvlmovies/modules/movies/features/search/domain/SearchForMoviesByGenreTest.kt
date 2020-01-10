@@ -1,7 +1,7 @@
-package com.example.swvlmovies.modules.movies.search.domain
+package com.example.swvlmovies.modules.movies.features.search.domain
 
-import com.example.swvlmovies.modules.movies.search.domain.SearchForMoviesByGenre.Companion.PER_YEAR_LIMIT
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.domain.SearchForMoviesByGenre.Companion.PER_YEAR_LIMIT
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.spy
 import com.nhaarman.mockito_kotlin.verify

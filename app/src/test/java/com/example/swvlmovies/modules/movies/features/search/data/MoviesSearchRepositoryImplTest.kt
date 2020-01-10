@@ -1,14 +1,13 @@
-package com.example.swvlmovies.modules.movies.search.data
+package com.example.swvlmovies.modules.movies.features.search.data
 
 import com.example.swvlmovies.modules.common.data.local.MoviesDAO
 import com.example.swvlmovies.modules.common.data.local.models.GenreDTO
-import com.example.swvlmovies.modules.movies.search.data.cache.MoviesCacheDS
+import com.example.swvlmovies.modules.movies.features.search.data.cache.MoviesCacheDS
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Flowable
 import io.reactivex.Single
-import org.intellij.lang.annotations.Flow
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock

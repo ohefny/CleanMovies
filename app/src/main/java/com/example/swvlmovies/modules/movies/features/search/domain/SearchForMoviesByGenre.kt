@@ -1,7 +1,7 @@
-package com.example.swvlmovies.modules.movies.search.domain
+package com.example.swvlmovies.modules.movies.features.search.domain
 
 import com.example.swvlmovies.base.domian.SingleUseCase
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.MoviesOfYear
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.MoviesOfYear
 import io.reactivex.Single
 import timber.log.Timber
 import javax.inject.Inject

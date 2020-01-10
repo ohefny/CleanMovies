@@ -2,12 +2,11 @@ package com.example.swvlmovies.modules.movies.presentation
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.swvlmovies.R
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
-import com.example.swvlmovies.modules.movies.search.presentaion.MoviesSearchFragment
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.presentaion.MoviesSearchFragment
 import dagger.android.support.DaggerAppCompatActivity
 
 class MoviesActivity : DaggerAppCompatActivity(),MoviesSearchFragment.MovieSelectedListener {

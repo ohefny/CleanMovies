@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.presentaion
+package com.example.swvlmovies.modules.movies.features.search.presentaion
 
 import android.content.Context
 import android.os.Bundle
@@ -13,13 +13,11 @@ import com.example.swvlmovies.core.extention.observeResource
 import com.example.swvlmovies.core.extention.onClick
 import com.example.swvlmovies.core.extention.toggleVisibility
 import com.example.swvlmovies.core.presentation.ViewModelFactory
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_movies_search.view.*
 import kotlinx.android.synthetic.main.view_movie_list.*
 import kotlinx.android.synthetic.main.view_movie_list.view.*
-import java.lang.IllegalStateException
-import java.nio.channels.IllegalSelectorException
 import javax.inject.Inject
 import kotlin.properties.Delegates
 

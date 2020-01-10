@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.presentaion
+package com.example.swvlmovies.modules.movies.features.search.presentaion
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,9 +9,9 @@ import com.example.swvlmovies.core.data.Resource
 import com.example.swvlmovies.core.extention.addTo
 import com.example.swvlmovies.core.extention.flatMapToResource
 import com.example.swvlmovies.core.extention.publishResource
-import com.example.swvlmovies.modules.movies.search.domain.SearchForMoviesByGenre
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.MoviesOfYear
+import com.example.swvlmovies.modules.movies.features.search.domain.SearchForMoviesByGenre
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.MoviesOfYear
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

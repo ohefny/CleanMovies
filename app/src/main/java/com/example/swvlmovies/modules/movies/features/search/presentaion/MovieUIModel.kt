@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.presentaion
+package com.example.swvlmovies.modules.movies.features.search.presentaion
 
 sealed class CategorizedMovieUI {
     data class YearUI(val value:Int): CategorizedMovieUI()

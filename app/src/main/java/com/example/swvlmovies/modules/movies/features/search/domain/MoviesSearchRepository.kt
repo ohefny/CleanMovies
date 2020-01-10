@@ -1,6 +1,6 @@
-package com.example.swvlmovies.modules.movies.search.domain
+package com.example.swvlmovies.modules.movies.features.search.domain
 
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import io.reactivex.Flowable
 import io.reactivex.Single
 

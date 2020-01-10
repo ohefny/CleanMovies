@@ -1,14 +1,13 @@
-package com.example.swvlmovies.modules.movies.search.di
+package com.example.swvlmovies.modules.movies.features.search.di
 
 import androidx.lifecycle.ViewModel
 import com.example.swvlmovies.core.data.SwvlMoviesDB
-import com.example.swvlmovies.core.di.modules.ActivityScope
 import com.example.swvlmovies.core.di.modules.ViewModelKey
 import com.example.swvlmovies.modules.common.data.local.MoviesDAO
-import com.example.swvlmovies.modules.movies.search.data.MoviesSearchRepositoryImpl
-import com.example.swvlmovies.modules.movies.search.domain.MoviesSearchRepository
-import com.example.swvlmovies.modules.movies.search.presentaion.MoviesSearchFragment
-import com.example.swvlmovies.modules.movies.search.presentaion.MoviesSearchViewModel
+import com.example.swvlmovies.modules.movies.features.search.data.MoviesSearchRepositoryImpl
+import com.example.swvlmovies.modules.movies.features.search.domain.MoviesSearchRepository
+import com.example.swvlmovies.modules.movies.features.search.presentaion.MoviesSearchFragment
+import com.example.swvlmovies.modules.movies.features.search.presentaion.MoviesSearchViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

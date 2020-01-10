@@ -1,4 +1,4 @@
-package com.example.swvlmovies.modules.movies.search.presentaion
+package com.example.swvlmovies.modules.movies.features.search.presentaion
 
 import android.view.LayoutInflater
 import android.view.View

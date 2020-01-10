@@ -1,15 +1,14 @@
-package com.example.swvlmovies.modules.movies.search.data
+package com.example.swvlmovies.modules.movies.features.search.data
 
 import com.example.swvlmovies.modules.common.data.local.MoviesDAO
 import com.example.swvlmovies.modules.common.data.local.models.GenreDTO
 import com.example.swvlmovies.modules.common.data.local.models.MovieDTO
 import com.example.swvlmovies.modules.common.data.local.serialization_adapters.DELIMITER
-import com.example.swvlmovies.modules.movies.search.data.cache.MoviesCacheDS
-import com.example.swvlmovies.modules.movies.search.domain.MoviesSearchRepository
-import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
+import com.example.swvlmovies.modules.movies.features.search.data.cache.MoviesCacheDS
+import com.example.swvlmovies.modules.movies.features.search.domain.MoviesSearchRepository
+import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import io.reactivex.Flowable
 import io.reactivex.Single
-import timber.log.Timber
 import javax.inject.Inject
 
 class MoviesSearchRepositoryImpl @Inject constructor(
