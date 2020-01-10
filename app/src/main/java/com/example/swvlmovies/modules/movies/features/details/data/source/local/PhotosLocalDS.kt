@@ -4,7 +4,6 @@ import com.example.swvlmovies.modules.movies.features.details.data.source.model.
 import com.example.swvlmovies.modules.movies.features.search.domain.enitiy.Movie
 import io.reactivex.Completable
 import io.reactivex.Flowable
-import io.reactivex.Maybe
 import javax.inject.Inject
 
 class PhotosLocalDS @Inject constructor(private val photosDAO: PhotosDAO){

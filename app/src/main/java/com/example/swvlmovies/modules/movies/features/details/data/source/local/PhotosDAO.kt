@@ -11,7 +11,7 @@ import io.reactivex.Maybe
 
 @Dao
 interface PhotosDAO {
-    @Query("SELECT * FROM $PHOTOS_TABLE WHERE movieId = movieId")
+    @Query("SELECT * FROM $PHOTOS_TABLE WHERE movieId = :movieID")
     fun getPhotos(movieID:String): Maybe<PhotosDTO>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
