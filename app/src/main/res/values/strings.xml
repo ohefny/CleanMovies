@@ -2,6 +2,6 @@
     <string name="app_name">SwvlMovies</string>
     <!-- Search screen -->
     <string name="search_empty_place_holder">Please enter a genre to find movies e.g. Action</string>
-    <string name="search_hint">Enter genre</string>
+    <string name="search_hint">Enter genre...or empty for non genre</string>
     <string name="search_button">Search</string>
 </resources>

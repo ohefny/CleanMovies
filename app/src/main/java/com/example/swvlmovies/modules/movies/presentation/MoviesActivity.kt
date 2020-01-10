@@ -4,11 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.swvlmovies.R
+import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
 import com.example.swvlmovies.modules.movies.search.presentaion.MoviesSearchFragment
 import dagger.android.support.DaggerAppCompatActivity
 
-class MoviesActivity : DaggerAppCompatActivity() {
+class MoviesActivity : DaggerAppCompatActivity(),MoviesSearchFragment.MovieSelectedListener {
+    override fun onMovieSelected(movie: Movie) {
+        Toast.makeText(this,movie.title,Toast.LENGTH_LONG).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +24,6 @@ class MoviesActivity : DaggerAppCompatActivity() {
                 .commit()
         }
     }
-
 
     companion object{
         fun startMe(activity: Activity){

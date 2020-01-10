@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/twenty_grid_unit"
-    android:layout_height="224dp"
-    tools:layout_width="@dimen/twenty_grid_unit">
-
-    <ImageView
-        android:id="@+id/imageView_movieListItem_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|top"
-        android:adjustViewBounds="true"
-        tools:layout_height="224dp" />
-</FrameLayout>
+    android:id="@+id/tvMovieTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorTextPrimary"
+    android:paddingStart="@dimen/two_grid_unit"
+    android:gravity="center_vertical|start"
+    android:textSize="@dimen/text_size_medium_material"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    tools:text="Year 2006"
+    android:background="@color/colorBackground" />
