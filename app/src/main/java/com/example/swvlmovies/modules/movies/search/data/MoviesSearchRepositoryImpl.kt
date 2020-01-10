@@ -9,6 +9,7 @@ import com.example.swvlmovies.modules.movies.search.domain.MoviesSearchRepositor
 import com.example.swvlmovies.modules.movies.search.domain.enitiy.Movie
 import io.reactivex.Flowable
 import io.reactivex.Single
+import timber.log.Timber
 import javax.inject.Inject
 
 class MoviesSearchRepositoryImpl @Inject constructor(
@@ -18,12 +19,13 @@ class MoviesSearchRepositoryImpl @Inject constructor(
     override fun getMoviesWithGenre(genre: String): Single<List<Movie>> {
         return moviesDAO.getMoviesByGenre(genre)
             .flattenAsFlowable { it }
-            .map { it.toDomain() }.toList()
+            .map { it.toDomain() }
+            .toList()
     }
 
     override fun getGenres(): Flowable<String> {
         return moviesCacheDS.getGenres()
-            .switchIfEmpty { getGenresFromLocal() }
+            .switchIfEmpty(Flowable.defer(::getGenresFromLocal))
             .map { it.name }
     }
 
@@ -34,7 +36,9 @@ class MoviesSearchRepositoryImpl @Inject constructor(
             .map { it.trim() }
             .distinct()
             .map{GenreDTO(it)}
-            .doOnNext { moviesCacheDS.addGenre(it) }
+            .toList()//convert to toList so that we insert all available genres
+            .doOnSuccess { moviesCacheDS.addGenres(it) }
+            .flattenAsFlowable { it }
     }
 }
 

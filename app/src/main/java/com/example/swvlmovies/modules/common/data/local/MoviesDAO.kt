@@ -17,7 +17,7 @@ interface MoviesDAO {
     fun insertMovies(movies: List<MovieDTO>): Completable
     @Query("SELECT COUNT(*) FROM $MOVIE_TABLE")
     fun getMoviesCount():Single<Int>
-    @Query("SELECT * FROM $MOVIE_TABLE WHERE genres LIKE '%'||:movieGenre||'%'")
+    @Query("SELECT * FROM $MOVIE_TABLE WHERE genres LIKE '%'||:movieGenre||'%' ORDER BY year,rating DESC")
     fun getMoviesByGenre(movieGenre:String):Single<List<MovieDTO>>
     @Query("SELECT genres FROM $MOVIE_TABLE")
     fun getGenres(): Single<List<String>>
