@@ -2,6 +2,10 @@
     <string name="app_name">SwvlMovies</string>
     <!-- Search screen -->
     <string name="search_empty_place_holder">Please enter a genre to find movies e.g. Action</string>
+    <string name="search_error_place_holder">No Movies available with this genre</string>
     <string name="search_hint">Enter genre...or empty for non genre</string>
     <string name="search_button">Search</string>
+    <string name="movie_details_network_error_msg">Please check your internet connection \n click to retry</string>
+    <string name="movie_details_error_msg">Something went wrong \n click to retry</string>
+
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/twenty_grid_unit"
+    android:layout_height="224dp"
+    tools:layout_width="@dimen/twenty_grid_unit"
+    android:layout_marginBottom="@dimen/two_grid_unit"
+    >
+
+    <ImageView
+        android:id="@+id/imgMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|top"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_app"
+        tools:layout_height="224dp" />
+</FrameLayout>

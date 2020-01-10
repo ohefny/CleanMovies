@@ -7,8 +7,5 @@ import javax.inject.Inject
 
 class GetMoviePhotos @Inject constructor(private val repository: MovieDetailsRepository) :
     SingleUseCase<Movie, List<String>>() {
-    //make it flowable so that each image returns it adds to the list
-    override fun build(params: Movie): Single<List<String>>  = with(repository){
-       getMoviePhotos(params).toList()
-    }
+    override fun build(params: Movie): Single<List<String>> = repository.getMoviePhotos(params)
 }

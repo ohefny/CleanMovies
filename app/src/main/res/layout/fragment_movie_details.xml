@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/one_grid_unit">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/text_size_large_material"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="This is the title" />
+
+        <TextView
+            android:id="@+id/txtCastLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/two_grid_unit"
+            android:text="Stars: "
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_medium_material"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+        <TextView
+            android:id="@+id/txtCast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="@dimen/text_size_medium_material"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtCastLabel"
+            app:layout_constraintTop_toTopOf="@+id/txtCastLabel"
+            tools:text="This is the title" />
+
+        <TextView
+            android:id="@+id/txtGenreLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/two_grid_unit"
+            android:text="Genres: "
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_medium_material"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCast" />
+
+        <TextView
+            android:id="@+id/txtGenre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="@dimen/text_size_medium_material"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtGenreLabel"
+            app:layout_constraintTop_toTopOf="@+id/txtGenreLabel"
+            tools:text="This is the title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPhotosList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/two_grid_unit"
+        android:clipToPadding="false"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailsContainer"
+        app:spanCount="2"
+        tools:listitem="@layout/item_movie_photo"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/progressBarPhotos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBackground"
+        android:visibility="visible"
+        tools:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ProgressBar
+            android:layout_gravity="center"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_error"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/movie_details_error_msg"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/text_size_large_material"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
