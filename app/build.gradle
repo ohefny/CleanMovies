@@ -25,15 +25,25 @@ android {
         buildConfigField "String", "FLICKR_KEY", getLocalProperty("flickr.key", '""')//add default value for fast testing purposes
         buildConfigField "String", "FLICKR_BASE_URL",'"https://api.flickr.com"'
     }
+    signingConfigs {
+        release {
+            storeFile file("${getLocalProperty("release.keyPath","")}")
+            storePassword "${getLocalProperty("release.storePassword","")}"
+            keyAlias "${getLocalProperty("release.keyAlias","")}"
+            keyPassword "${getLocalProperty("release.keyPassword","")}"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     androidExtensions {
         experimental = true
     }
+
 }
 
 dependencies {
