@@ -3,6 +3,8 @@
 
   This app shows a list of top 5 rated movies of each year in specific genre  
 
+<a href="https://ibb.co/VBRfFtX"><img src="https://i.ibb.co/88q1y0F/Screenshot-1578820066.png" alt="Screenshot-1578820066" width="200px" height="400px" border="0"></a> <a href="https://ibb.co/1XDpXrZ"><img src="https://i.ibb.co/94Ff4bn/Screenshot-1578820072.png" alt="Screenshot-1578820072" width="200px" height="400px" border="0"></a> <a href="https://ibb.co/xMshqCJ"><img src="https://i.ibb.co/9qvnH8s/Screenshot-1578820096.png" alt="Screenshot-1578820096" width="200px" height="400px" border="0"></a> <a href="https://ibb.co/R67GJf9"><img src="https://i.ibb.co/gW6bcN3/Screenshot-1578820130.png" alt="Screenshot-1578820130" width="200px" height="400px" border="0"></a>
+
 ## Getting Started  
   
 *To get this project up and running on your local machine for development and testing purposes.* <li> Make sure all prerequisties are met  
@@ -15,6 +17,7 @@ Or you can simply download the code from here    https://github.com/ohefny/SwvlM
 <li> Attach your device via (usb or wifi) or start an emulator   
 <li> Select the device from the menu   
 <li> Click the run button   
+
 ![enter image description here](https://i.ibb.co/Y7zh8b8/running-app.png)
 
 ### Prerequisites  
@@ -45,7 +48,7 @@ Or you can simply download the code from here    https://github.com/ohefny/SwvlM
 ### Deployment  
   
 To generate a release APK version of the app  please follow these steps
-<li> First get a key for flickr images to work  [https://www.flickr.com/services/apps/create/](https://www.flickr.com/services/apps/create/)
+<li> First get a key for flickr images to work  [https://www.flickr.com/services/apps/create/]
 <li>  Make sure Keytool is added to your path  or run it from your JRE bin folder
 <li> Navigate to desired destination of the keys inisde the project prefarly "../app/keys "
 <li> Generate your signing key by running this 
