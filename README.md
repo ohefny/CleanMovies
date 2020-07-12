@@ -10,9 +10,9 @@
 *To get this project up and running on your local machine for development and testing purposes.* <li> Make sure all prerequisties are met  
 <li> Clone this project on your machine by running  
 
-     git clone https://github.com/ohefny/SwvlMovies.git   
+     git clone https://github.com/ohefny/CleanMovies.git   
 
-Or you can simply download the code from here    https://github.com/ohefny/SwvlMovies/archive/master.zip 
+Or you can simply download the code from here    https://github.com/ohefny/CleanMovies/archive/master.zip 
 <li> Open the project on AndroidStudio  
 <li> Attach your device via (usb or wifi) or start an emulator   
 <li> Select the device from the menu   
