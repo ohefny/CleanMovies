@@ -79,4 +79,4 @@ release.keyPath= {key_path/release_key.keystore}
    ```./gradlew test```
 
 ### Downloads 
-Download release APK from releases tab or https://github.com/ohefny/SwvlMovies/releases/download/v1.0/app-release.apk
+Download release APK from releases tab or https://github.com/ohefny/cleanmovies/releases/download/v1.0/app-release.apk
